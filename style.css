@@ -63,8 +63,12 @@
     margin-top: 67px;
 }
 
-.complex__button_start:hover {
+.active:hover {
     text-decoration-line: underline;
     text-decoration-color: #0080C1;
     outline: 2px solid green;
+}
+
+.invisible {
+    display: none;
 }

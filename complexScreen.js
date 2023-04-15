@@ -25,7 +25,17 @@ class ComplexScreen{
             } else {
                 console.log('function 123');
                 window.application.level = target.textContent;
-                
+
+                const startButtonActive = document.querySelector('.complex__button_start');
+                startButtonActive.removeAttribute('disabled');
+                startButtonActive.classList.add('active');
+
+                const btns = document.querySelectorAll('.complex__button');
+                btns.forEach(btn => {
+                    if (btn.textContent !== target.textContent) {
+                        btn.classList.add('invisible');
+                    };
+                });               
             }           
         }
     }
@@ -70,7 +80,10 @@ ComplexScreen.template = {
         {
             tag: 'button',
             cls: 'complex__button_start',
-            content: 'Старт'
+            content: 'Старт',
+            attrs: {
+                disabled: 'true'
+            }
         }
 
     ]
