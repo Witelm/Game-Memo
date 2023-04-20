@@ -18,12 +18,12 @@ class ComplexScreen{
         if (target.tagName === 'BUTTON') {
 
             if (target.textContent === 'Старт') {
-                console.log('function Start');
+
                 window.application.screen = 'Start';
                 const Game_screen = new GameScreen(app);
 
             } else {
-                console.log('function 123');
+
                 window.application.level = target.textContent;
 
                 const startButtonActive = document.querySelector('.complex__button_start');
