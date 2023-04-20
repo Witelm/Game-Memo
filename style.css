@@ -1,127 +1,130 @@
+/* stylelint-disable color-hex-length */
+/* stylelint-disable selector-class-pattern */
+/* stylelint-disable prettier/prettier */
 * {
-    margin: 0;
-    padding: 0;
+  margin: 0;
+  padding: 0;
 }
 
 .app {
-    background: #004980;
-    height: 100vh;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    flex-direction: column;
+  background: #004980;
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
 }
 
 .complex__form {
-    background: #C2F5FF;
-    width: 480px;
-    height: 459px;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    border-radius: 12px;
+  background: #c2f5ff;
+  width: 480px;
+  height: 459px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  border-radius: 12px;
 }
 
 .complex__text {
-    color: #004980;
-    font-size: 40px;
-    line-height: 48px;
+  color: #004980;
+  font-size: 40px;
+  line-height: 48px;
 }
 
 .buttonDiv {
-    margin-top: 48px;
-    display: flex;
-    gap: 24px;
+  margin-top: 48px;
+  display: flex;
+  gap: 24px;
 }
 
 .complex__button {
-    font-size: 64px;
-    line-height: 72px;
-    color: #0080C1;
-    border: none;
-    background: #FFFFFF;
-    border-radius: 12px;
-    width: 98px;
-    height: 98px;
+  font-size: 64px;
+  line-height: 72px;
+  color: #0080c1;
+  border: none;
+  background: #ffffff;
+  border-radius: 12px;
+  width: 98px;
+  height: 98px;
 }
 
 .complex__button:hover {
-    text-decoration-line: underline;
-    outline: 2px solid #0080C1;
+  text-decoration-line: underline;
+  outline: 2px solid #0080c1;
 }
 
 .complex__button_start {
-    width: 246px;
-    height: 50px;
-    background-color: #7AC100;
-    font-size: 24px;
-    line-height: 32px;
-    color: #FFF;
-    border-radius: 12px;
-    margin-bottom: 48px;
-    border: #7AC100;
-    margin-top: 67px;
+  width: 246px;
+  height: 50px;
+  background-color: #7ac100;
+  font-size: 24px;
+  line-height: 32px;
+  color: #fff;
+  border-radius: 12px;
+  margin-bottom: 48px;
+  border: #7ac100;
+  margin-top: 67px;
 }
 
 .active:hover {
-    text-decoration-line: underline;
-    text-decoration-color: #0080C1;
-    outline: 2px solid green;
+  text-decoration-line: underline;
+  text-decoration-color: #0080c1;
+  outline: 2px solid green;
 }
 
 .invisible {
-    display: none;
+  display: none;
 }
 
 .card__form {
-    display: flex;
-    gap: 20px;
-    flex-wrap: wrap;
-    justify-content: center;
+  display: flex;
+  gap: 20px;
+  flex-wrap: wrap;
+  justify-content: center;
 }
 
 .screen__form {
-    margin-bottom: 50px;
-    display: flex;
-    justify-content: space-around;
-    width: 100%;
-    align-items: flex-end;
+  margin-bottom: 50px;
+  display: flex;
+  justify-content: space-around;
+  width: 100%;
+  align-items: flex-end;
 }
 
 .btn__new_game {
-    background: #7AC100;
-    border-radius: 12px;
-    width: 246px;
-    height: 50px;
-    color: #fff;
+  background: #7ac100;
+  border-radius: 12px;
+  width: 246px;
+  height: 50px;
+  color: #fff;
 }
 
 .h1__new_game {
-    font-style: normal;
-    font-weight: 400;
-    font-size: 24px;
-    line-height: 32px;
-    color: #fff;
+  font-style: normal;
+  font-weight: 400;
+  font-size: 24px;
+  line-height: 32px;
+  color: #fff;
 }
 
 .time__new_game {
-    width: 155px;
-    height: 72px;
-    color: #fff;
+  width: 155px;
+  height: 72px;
+  color: #fff;
 }
 
 .min_sec {
-    display: flex;
-    justify-content: center;
-    gap: 20px;
+  display: flex;
+  justify-content: center;
+  gap: 20px;
 }
 
 .div__time {
-    display: flex;
-    justify-content: center;
-    font-style: normal;
-    font-weight: 400;
-    font-size: 64px;
-    line-height: 72px;
+  display: flex;
+  justify-content: center;
+  font-style: normal;
+  font-weight: 400;
+  font-size: 64px;
+  line-height: 72px;
 }
