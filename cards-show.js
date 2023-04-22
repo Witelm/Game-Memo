@@ -10,9 +10,6 @@ class CardShow {
     this.render();
 
     this.cardsClick = this.cardsClick.bind(this);
-    document
-      .querySelector(".card__form")
-      .addEventListener("click", this.cardsClick);
 
     this.buttonBeginNewGameHandler = this.buttonBeginNewGameHandler.bind(this);
     document
@@ -38,6 +35,9 @@ class CardShow {
       const btn = document.querySelector(".btn__new_game");
       btn.removeAttribute("disabled");
       btn.classList.add("active");
+      document
+        .querySelector(".card__form")
+        .addEventListener("click", this.cardsClick);
     };
 
     setTimeout(shirtBegin, 5000);
@@ -45,8 +45,28 @@ class CardShow {
 
   cardsClick(event) {
     const target = event.target;
-    console.log("click card");
-    console.dir(target);
+    const delItemArr = window.application.cards;
+    if (window.application.choosenCard === "") {
+      window.application.choosenCard = target.id;
+      delItemArr.splice(delItemArr.indexOf(target.id), 1);
+    } else {
+      if (window.application.choosenCard !== target.id) {
+        target.setAttribute("src", `./images/${target.id}.jpg`);
+        setTimeout(() => {
+          alert("вы проиграли");
+        }, 500);
+      } else {
+        window.application.choosenCard = "";
+        delItemArr.splice(delItemArr.indexOf(target.id), 1);
+      }
+    }
+    target.setAttribute("src", `./images/${target.id}.jpg`);
+
+    if (window.application.cards.length === 0) {
+      setTimeout(() => {
+        alert("вы выиграли");
+      }, 1000);
+    }
   }
 
   buttonBeginNewGameHandler() {
@@ -57,6 +77,7 @@ class CardShow {
       status: "",
       cards: "",
       screen: "",
+      choosenCard: "",
     };
     const Complex_Screen = new ComplexScreen(app);
   }
@@ -75,10 +96,11 @@ CardShow.templateItem = (item) => ({
   },
 });
 
-CardShow.templateItemShirt = () => ({
+CardShow.templateItemShirt = (data) => ({
   tag: "img",
   cls: "img__style",
   attrs: {
     src: `./images/shirt.jpg`,
+    id: data,
   },
 });
