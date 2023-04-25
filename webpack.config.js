@@ -38,7 +38,7 @@ module.exports = {
             patterns: [
                 {
                     from: './images',
-                    to: 'static',
+                    to: 'images',
                 },
             ],
         }),

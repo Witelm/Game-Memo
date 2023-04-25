@@ -129,7 +129,7 @@ CardShow.templateItem = (item) => ({
     tag: 'img',
     cls: 'img__style',
     attrs: {
-        src: `./images/${item}.jpg`,
+        src: `../images/${item}.jpg`,
     },
 })
 
@@ -137,7 +137,7 @@ CardShow.templateItemShirt = (data) => ({
     tag: 'img',
     cls: 'img__style',
     attrs: {
-        src: `./images/shirt.jpg`,
+        src: `../images/shirt.jpg`,
         id: data,
     },
 })
@@ -145,3 +145,4 @@ CardShow.templateItemShirt = (data) => ({
 export { CardShow }
 import { templateEngine } from './template-engine.js'
 import { app } from './index.js'
+import { End } from './end.js'

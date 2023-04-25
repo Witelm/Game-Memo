@@ -22,6 +22,3 @@ const app = document.querySelector('.app')
 const Complex_Screen = new ComplexScreen(app)
 
 export { app }
-
-// './template-engine.js'
-// import './complexScreen.js'
