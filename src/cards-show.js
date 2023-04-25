@@ -141,3 +141,7 @@ CardShow.templateItemShirt = (data) => ({
         id: data,
     },
 })
+
+export { CardShow }
+import { templateEngine } from './template-engine.js'
+import { app } from './index.js'

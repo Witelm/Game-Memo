@@ -87,5 +87,7 @@ ComplexScreen.template = {
     ],
 }
 
-// import { templateEngine } from './template-engine.js'
-// export { ComplexScreen }
+import { templateEngine } from './template-engine.js'
+export { ComplexScreen }
+import { GameScreen } from './gameScreen.js'
+import { app } from './index.js'

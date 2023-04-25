@@ -106,3 +106,8 @@ GameScreen.template = {
 
 const ArrayCards = ['6', '7', '8', '9', '10', 'J', 'Q', 'K', 'A']
 const ArraySuits = ['H', 'C', 'D', 'S']
+
+export { GameScreen }
+import { templateEngine } from './template-engine.js'
+import { app } from './index.js'
+import { CardShow } from './cards-show.js'

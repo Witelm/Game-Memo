@@ -38,4 +38,4 @@ function templateEngine(block) {
     return element
 }
 
-// export { templateEngine }
+export { templateEngine }
