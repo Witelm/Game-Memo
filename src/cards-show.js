@@ -73,6 +73,7 @@ class CardShow {
                 clearInterval(timeInterval)
             }
             time.textContent = `${min2}${min1}.${sec2}${sec1}`
+            window.application.time = time.textContent
         }, 1000)
     }
 
@@ -87,6 +88,7 @@ class CardShow {
                 target.setAttribute('src', `./images/${target.id}.jpg`)
                 setTimeout(() => {
                     window.application.win = 'lose'
+                    const endScreen = new End(app)
                     alert('вы проиграли')
                 }, 500)
             } else {
