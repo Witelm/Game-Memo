@@ -37,3 +37,5 @@ function templateEngine(block) {
     element.appendChild(content)
     return element
 }
+
+// export { templateEngine }

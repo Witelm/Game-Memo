@@ -2,6 +2,9 @@
 /* eslint-disable no-unused-vars */
 /* eslint-disable camelcase */
 
+// import { ComplexScreen } from './complexScreen.js'
+// import { templateEngine } from './template-engine.js'
+
 window.application = {
     level: '',
     time: '',
@@ -15,9 +18,5 @@ window.application = {
 const app = document.querySelector('.app')
 const Complex_Screen = new ComplexScreen(app)
 
-import './template-engine.js'
-import './complexScreen.js'
-import './gameScreen.js'
-import './cards-show.js'
-import './end.js'
-import './style.css'
+// './template-engine.js'
+// import './complexScreen.js'
