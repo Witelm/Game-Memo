@@ -1,31 +1,35 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Document</title>
-    <link rel="stylesheet" href="./style.css" />
-  </head>
-  <body>
-    <div class="app"></div>
+    <head>
+        <meta charset="UTF-8" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Document</title>
+        <link rel="stylesheet" href="./src/style.css" />
+    </head>
+    <body>
+        <div class="app"></div>
 
-    <script src="./lib/template-engine.js"></script>
-    <script src="./gameScreen.js"></script>
-    <script src="./complexScreen.js"></script>
-    <script src="./cards-show.js"></script>
-    <script>
-      window.application = {
-        level: "",
-        time: "",
-        status: "",
-        cards: "",
-        screen: "",
-        choosenCard: "",
-      };
+        <script type="module" src="./src/template-engine.js"></script>
+        <script type="module" src="./src/gameScreen.js"></script>
+        <script type="module" src="./src/complexScreen.js"></script>
+        <script type="module" src="./src/end.js"></script>
+        <script type="module" src="./src/cards-show.js"></script>
+        <script type="module" src="./src/index.js"></script>
 
-      const app = document.querySelector(".app");
-      const Complex_Screen = new ComplexScreen(app);
-    </script>
-  </body>
+        <!-- <script type="module">
+            window.application = {
+                level: '',
+                time: '',
+                status: '',
+                cards: '',
+                screen: '',
+                win: '',
+                choosenCard: '',
+            }
+
+            const app = document.querySelector('.app')
+            const Complex_Screen = new ComplexScreen(app) -->
+        </script>
+    </body>
 </html>
