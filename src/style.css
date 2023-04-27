@@ -130,3 +130,44 @@
     font-size: 64px;
     line-height: 72px;
 }
+
+.end__form {
+    padding-left: calc(50% - 350px);
+    padding-right: calc(50% - 350px);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background: #c2f5ff;
+    align-content: stretch;
+    flex-wrap: wrap;
+    width: 480px;
+    height: 459px;
+    justify-content: space-evenly;
+}
+
+.end__img {
+    width: 75%;
+}
+
+.end__text {
+    color: darkred;
+    font-size: 64px;
+    line-height: 72px;
+}
+
+.end__text_add {
+    color: #0080c1;
+    font-size: 24px;
+    line-height: 32px;
+}
+
+.end__btn {
+    width: 246px;
+    height: 50px;
+    background-color: #7ac100;
+    font-size: 24px;
+    line-height: 32px;
+    color: #fff;
+    border-radius: 12px;
+    border: #7ac100;
+}

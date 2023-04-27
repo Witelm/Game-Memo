@@ -89,8 +89,7 @@ class CardShow {
                 setTimeout(() => {
                     window.application.win = 'lose'
                     const endScreen = new End(app)
-                    alert('вы проиграли')
-                }, 500)
+                }, 1000)
             } else {
                 window.application.choosenCard = ''
                 delItemArr.splice(delItemArr.indexOf(target.id), 1)
@@ -101,7 +100,7 @@ class CardShow {
         if (window.application.cards.length === 0) {
             setTimeout(() => {
                 window.application.win = 'win'
-                alert('вы выиграли')
+                const endScreen = new End(app)
             }, 1000)
         }
     }
@@ -143,6 +142,7 @@ CardShow.templateItemShirt = (data) => ({
 })
 
 export { CardShow }
+import { ComplexScreen } from './complexScreen.js'
 import { templateEngine } from './template-engine.js'
 import { app } from './index.js'
 import { End } from './end.js'
