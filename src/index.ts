@@ -2,11 +2,11 @@
 /* eslint-disable no-unused-vars */
 /* eslint-disable camelcase */
 
-import { ComplexScreen } from './complexScreen.js'
-import { templateEngine } from './template-engine.js'
-import style from './style.css'
-import { CardShow } from './cards-show.js'
-import { GameScreen } from './gameScreen.js'
+import { ComplexScreen } from './complexScreen'
+import { templateEngine } from './template-engine'
+// import style from './style.css'
+import { CardShow } from './cards-show'
+import { GameScreen } from './gameScreen'
 
 window.application = {
     level: '',

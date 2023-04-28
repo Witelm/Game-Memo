@@ -142,7 +142,7 @@ CardShow.templateItemShirt = (data) => ({
 })
 
 export { CardShow }
-import { ComplexScreen } from './complexScreen.js'
-import { templateEngine } from './template-engine.js'
-import { app } from './index.js'
-import { End } from './end.js'
+import { ComplexScreen } from './complexScreen'
+import { templateEngine } from './template-engine'
+import { app } from './index'
+import { End } from './end'

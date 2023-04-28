@@ -1,6 +1,7 @@
 /* eslint-disable no-undef */
 class ComplexScreen {
-    constructor(element) {
+    element: HTMLElement | null
+    constructor(element: HTMLElement) {
         this.element = element
         this.render()
         this.clickButton = this.clickButton.bind(this)
@@ -87,7 +88,7 @@ ComplexScreen.template = {
     ],
 }
 
-import { templateEngine } from './template-engine.js'
+import { templateEngine } from './template-engine'
 export { ComplexScreen }
-import { GameScreen } from './gameScreen.js'
-import { app } from './index.js'
+import { GameScreen } from './gameScreen'
+import { app } from './index'
