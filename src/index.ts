@@ -4,21 +4,33 @@
 
 import { ComplexScreen } from './complexScreen'
 import { templateEngine } from './template-engine'
-// import style from './style.css'
+import style from './style.css'
 import { CardShow } from './cards-show'
 import { GameScreen } from './gameScreen'
 
-window.application = {
+interface Application {
+    level: String
+    time: string
+    status: string
+    cards: Array<String>
+    screen: string
+    win: string
+    choosenCard: Array<String>
+}
+
+const application: Application = {
     level: '',
     time: '',
     status: '',
-    cards: '',
+    cards: [],
     screen: '',
     win: '',
-    choosenCard: '',
+    choosenCard: [],
 }
 
-const app = document.querySelector('.app')
+export default application
+
+const app: HTMLElement | null = document.querySelector('.app')
 const Complex_Screen = new ComplexScreen(app)
 
 export { app }

@@ -8,17 +8,17 @@ class End {
         this.endClickButton = this.endClickButton.bind(this)
         this.element.lastChild.addEventListener('click', this.endClickButton)
 
-        window.application.screen = 'endScreen'
+        application.screen = 'endScreen'
     }
 
     render() {
         this.element.innerHTML = ''
 
         const ENDTEXT =
-            window.application.win === 'lose' ? 'вы проиграли' : 'вы выиграли'
+            application.win === 'lose' ? 'вы проиграли' : 'вы выиграли'
 
         const ENDIMAGE =
-            window.application.win === 'lose'
+            application.win === 'lose'
                 ? `./images/lose.jpg`
                 : `./images/win.jpg`
 
@@ -29,7 +29,7 @@ class End {
 
     endClickButton() {
         this.element.innerHTML = ''
-        window.application = {
+        application = {
             level: '',
             time: '',
             status: '',
@@ -53,7 +53,7 @@ End.template = (data, dataImg) => ({
         {
             tag: 'h2',
             cls: 'end__text_add',
-            content: `затраченное время ${window.application.time}`,
+            content: `затраченное время ${application.time}`,
         },
         {
             tag: 'img',
@@ -74,3 +74,4 @@ import { templateEngine } from './template-engine'
 import { ComplexScreen } from './complexScreen'
 import { app } from './index'
 export { End }
+import application from './index'

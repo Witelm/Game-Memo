@@ -16,7 +16,7 @@ class GameScreen {
     }
 
     mixCards() {
-        const pair = +window.application.level * 3
+        const pair = +application.level * 3
         const list = []
 
         const shuffle = (array) => {
@@ -51,7 +51,7 @@ class GameScreen {
         }
 
         list.push(...list)
-        window.application.cards = shuffle(list)
+        application.cards = shuffle(list)
     }
 }
 
@@ -111,3 +111,4 @@ export { GameScreen }
 import { templateEngine } from './template-engine'
 import { app } from './index'
 import { CardShow } from './cards-show'
+import application from './index'

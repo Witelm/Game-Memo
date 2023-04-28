@@ -5,7 +5,7 @@ class CardShow {
     constructor(element) {
         this.element = element
 
-        this.cardList = window.application.cards
+        this.cardList = application.cards
 
         this.render()
 
@@ -69,37 +69,37 @@ class CardShow {
                 min1 = 0
                 sec2 = 0
             }
-            if (window.application.win) {
+            if (application.win) {
                 clearInterval(timeInterval)
             }
             time.textContent = `${min2}${min1}.${sec2}${sec1}`
-            window.application.time = time.textContent
+            application.time = time.textContent
         }, 1000)
     }
 
     cardsClick(event) {
         const target = event.target
-        const delItemArr = window.application.cards
-        if (window.application.choosenCard === '') {
-            window.application.choosenCard = target.id
+        const delItemArr = application.cards
+        if (application.choosenCard === '') {
+            application.choosenCard = target.id
             delItemArr.splice(delItemArr.indexOf(target.id), 1)
         } else {
-            if (window.application.choosenCard !== target.id) {
+            if (application.choosenCard !== target.id) {
                 target.setAttribute('src', `./images/${target.id}.jpg`)
                 setTimeout(() => {
-                    window.application.win = 'lose'
+                    application.win = 'lose'
                     const endScreen = new End(app)
                 }, 1000)
             } else {
-                window.application.choosenCard = ''
+                application.choosenCard = ''
                 delItemArr.splice(delItemArr.indexOf(target.id), 1)
             }
         }
         target.setAttribute('src', `./images/${target.id}.jpg`)
 
-        if (window.application.cards.length === 0) {
+        if (application.cards.length === 0) {
             setTimeout(() => {
-                window.application.win = 'win'
+                application.win = 'win'
                 const endScreen = new End(app)
             }, 1000)
         }
@@ -107,7 +107,7 @@ class CardShow {
 
     buttonBeginNewGameHandler() {
         this.element.innerHTML = ''
-        window.application = {
+        application = {
             level: '',
             time: '',
             status: '',
@@ -146,3 +146,4 @@ import { ComplexScreen } from './complexScreen'
 import { templateEngine } from './template-engine'
 import { app } from './index'
 import { End } from './end'
+import application from './index'

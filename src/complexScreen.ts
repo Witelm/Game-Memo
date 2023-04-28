@@ -1,13 +1,15 @@
 /* eslint-disable no-undef */
 class ComplexScreen {
-    element: HTMLElement | null
+    public element: HTMLElement
+    public static template: Template
+
     constructor(element: HTMLElement) {
         this.element = element
         this.render()
         this.clickButton = this.clickButton.bind(this)
         this.element.lastChild.addEventListener('click', this.clickButton)
 
-        window.application.screen = 'Complex'
+        application.screen = 'Complex'
     }
 
     render() {
@@ -15,24 +17,25 @@ class ComplexScreen {
         this.element.appendChild(templateEngine(ComplexScreen.template))
     }
 
-    clickButton(event) {
-        const target = event.target
+    private clickButton(event: MouseEvent): void {
+        const target: EventTarget | null = event.target
+        console.log(target)
         if (target.tagName === 'BUTTON') {
             if (target.textContent === 'Старт') {
-                window.application.screen = 'Start'
+                application.screen = 'Start'
                 // eslint-disable-next-line camelcase, no-unused-vars
                 const Game_screen = new GameScreen(app)
             } else {
-                window.application.level = target.textContent
+                application.level = target.textContent
 
-                const startButtonActive = document.querySelector(
-                    '.complex__button_start'
-                )
+                const startButtonActive: Element | null =
+                    document.querySelector('.complex__button_start')
                 startButtonActive.removeAttribute('disabled')
                 startButtonActive.classList.add('active')
 
-                const btns = document.querySelectorAll('.complex__button')
-                btns.forEach((btn) => {
+                const btns: NodeListOf<Element> =
+                    document.querySelectorAll('.complex__button')
+                btns.forEach((btn: Element) => {
                     if (btn.textContent !== target.textContent) {
                         btn.classList.add('invisible')
                     }
@@ -88,6 +91,7 @@ ComplexScreen.template = {
     ],
 }
 
+import application from './index'
 import { templateEngine } from './template-engine'
 export { ComplexScreen }
 import { GameScreen } from './gameScreen'
