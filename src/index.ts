@@ -4,18 +4,20 @@
 
 import { ComplexScreen } from './complexScreen'
 import { templateEngine } from './template-engine'
-import style from './style.css'
+import './style.css'
 import { CardShow } from './cards-show'
 import { GameScreen } from './gameScreen'
 
-interface Application {
-    level: String
-    time: string
-    status: string
-    cards: Array<String>
-    screen: string
-    win: string
-    choosenCard: Array<String>
+declare global {
+    interface Application {
+        level: String
+        time: string
+        status: string
+        cards: Array<String>
+        screen: string
+        win: string
+        choosenCard: Array<String>
+    }
 }
 
 const application: Application = {
@@ -27,6 +29,16 @@ const application: Application = {
     win: '',
     choosenCard: [],
 }
+
+// window.application: Application = {
+//     level: '',
+//     time: '',
+//     status: '',
+//     cards: [],
+//     screen: '',
+//     win: '',
+//     choosenCard: [],
+// }
 
 export default application
 

@@ -2,7 +2,10 @@
 /* eslint-disable no-unused-vars */
 /* eslint-disable no-undef */
 class GameScreen {
-    constructor(element) {
+    public element: HTMLElement
+    public static template: Template
+
+    constructor(element: HTMLElement) {
         this.element = element
 
         this.mixCards()
@@ -16,10 +19,10 @@ class GameScreen {
     }
 
     mixCards() {
-        const pair = +application.level * 3
-        const list = []
+        const pair: number = +application.level * 3
+        const list: Array<typeof ArrayCards> = []
 
-        const shuffle = (array) => {
+        const shuffle = (array: Array<typeof ArrayCards>[]) => {
             let m = array.length,
                 t,
                 i
@@ -34,12 +37,12 @@ class GameScreen {
             return array
         }
 
-        const random = (item) => {
+        const random = (item: Array<typeof ArrayCards>[]) => {
             return Math.floor(Math.random() * item.length)
         }
 
         for (let i = 0; i < pair; i++) {
-            let temp =
+            let temp: String =
                 ArrayCards[random(ArrayCards)] + ArraySuits[random(ArraySuits)]
             if (list.includes(temp)) {
                 i--
@@ -104,8 +107,8 @@ GameScreen.template = {
     ],
 }
 
-const ArrayCards = ['6', '7', '8', '9', '10', 'J', 'Q', 'K', 'A']
-const ArraySuits = ['H', 'C', 'D', 'S']
+const ArrayCards: Array<String> = ['6', '7', '8', '9', '10', 'J', 'Q', 'K', 'A']
+const ArraySuits: Array<String> = ['H', 'C', 'D', 'S']
 
 export { GameScreen }
 import { templateEngine } from './template-engine'

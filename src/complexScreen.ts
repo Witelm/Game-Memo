@@ -17,7 +17,7 @@ class ComplexScreen {
         this.element.appendChild(templateEngine(ComplexScreen.template))
     }
 
-    private clickButton(event: MouseEvent): void {
+    clickButton(event: MouseEvent) {
         const target: EventTarget | null = event.target
         console.log(target)
         if (target.tagName === 'BUTTON') {
@@ -96,3 +96,5 @@ import { templateEngine } from './template-engine'
 export { ComplexScreen }
 import { GameScreen } from './gameScreen'
 import { app } from './index'
+// import { Template } from 'webpack'
+// import './style.css'

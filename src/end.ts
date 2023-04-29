@@ -1,6 +1,9 @@
 /* eslint-disable no-undef */
 class End {
-    constructor(element) {
+    public element: HTMLElement
+    public static template: Template
+
+    constructor(element: HTMLElement) {
         this.element = element
 
         this.render()
@@ -14,10 +17,10 @@ class End {
     render() {
         this.element.innerHTML = ''
 
-        const ENDTEXT =
+        const ENDTEXT: String =
             application.win === 'lose' ? 'вы проиграли' : 'вы выиграли'
 
-        const ENDIMAGE =
+        const ENDIMAGE: String =
             application.win === 'lose'
                 ? `./images/lose.jpg`
                 : `./images/win.jpg`
@@ -27,15 +30,16 @@ class End {
         )
     }
 
-    endClickButton() {
+    private endClickButton() {
         this.element.innerHTML = ''
-        application = {
+        const application: Application = {
             level: '',
             time: '',
             status: '',
-            cards: '',
+            cards: [],
             screen: '',
-            choosenCard: '',
+            win: '',
+            choosenCard: [],
         }
         const Complex_Screen = new ComplexScreen(app)
     }

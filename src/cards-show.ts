@@ -2,7 +2,10 @@
 /* eslint-disable no-unused-vars */
 /* eslint-disable no-undef */
 class CardShow {
-    constructor(element) {
+    public element: HTMLElement
+    public static template: Template
+
+    constructor(element: HTMLElement) {
         this.element = element
 
         this.cardList = application.cards
@@ -107,14 +110,23 @@ class CardShow {
 
     buttonBeginNewGameHandler() {
         this.element.innerHTML = ''
-        application = {
+        const application: Application = {
             level: '',
             time: '',
             status: '',
-            cards: '',
+            cards: [],
             screen: '',
-            choosenCard: '',
+            win: '',
+            choosenCard: [],
         }
+        // application = {
+        //     level: '',
+        //     time: '',
+        //     status: '',
+        //     cards: '',
+        //     screen: '',
+        //     choosenCard: '',
+        // }
         const Complex_Screen = new ComplexScreen(app)
     }
 }
