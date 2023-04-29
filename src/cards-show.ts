@@ -4,6 +4,8 @@
 class CardShow {
     public element: HTMLElement
     public static template: Template
+    public static templateItem: Template
+    public static templateItemShirt: Template
 
     constructor(element: HTMLElement) {
         this.element = element
@@ -22,19 +24,19 @@ class CardShow {
     }
 
     render() {
-        this.element.appendChild(templateEngine(CardShow.template))
+        this.element.appendChild(templateEngine(template))
         this.renderItem()
     }
 
     renderItem(item) {
         this.element.lastChild.appendChild(
-            templateEngine(this.cardList.map(CardShow.templateItem))
+            templateEngine(this.cardList.map(templateItem))
         )
 
         const shirtBegin = () => {
             this.element.lastChild.innerHTML = ''
             this.element.lastChild.appendChild(
-                templateEngine(this.cardList.map(CardShow.templateItemShirt))
+                templateEngine(this.cardList.map(templateItemShirt))
             )
             const btn = document.querySelector('.btn__new_game')
             btn.removeAttribute('disabled')
@@ -119,24 +121,16 @@ class CardShow {
             win: '',
             choosenCard: [],
         }
-        // application = {
-        //     level: '',
-        //     time: '',
-        //     status: '',
-        //     cards: '',
-        //     screen: '',
-        //     choosenCard: '',
-        // }
         const Complex_Screen = new ComplexScreen(app)
     }
 }
 
-CardShow.template = {
+const template: Template = {
     tag: 'div',
     cls: 'card__form',
 }
 
-CardShow.templateItem = (item) => ({
+const templateItem: Template = (item) => ({
     tag: 'img',
     cls: 'img__style',
     attrs: {
@@ -144,7 +138,7 @@ CardShow.templateItem = (item) => ({
     },
 })
 
-CardShow.templateItemShirt = (data) => ({
+const templateItemShirt: Template = (data) => ({
     tag: 'img',
     cls: 'img__style',
     attrs: {
@@ -158,4 +152,5 @@ import { ComplexScreen } from './complexScreen'
 import { templateEngine } from './template-engine'
 import { app } from './index'
 import { End } from './end'
-import application from './index'
+import application from './index'import { Template } from 'webpack'
+

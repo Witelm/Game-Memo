@@ -14,15 +14,15 @@ class GameScreen {
 
     render() {
         this.element.innerHTML = ''
-        this.element.appendChild(templateEngine(GameScreen.template))
+        this.element.appendChild(templateEngine(template))
         const Card_Show = new CardShow(this.element)
     }
 
     mixCards() {
         const pair: number = +application.level * 3
-        const list: Array<typeof ArrayCards> = []
+        const list: Array<String> = []
 
-        const shuffle = (array: Array<typeof ArrayCards>[]) => {
+        const shuffle = (array: Array<String>[]) => {
             let m = array.length,
                 t,
                 i
@@ -37,12 +37,12 @@ class GameScreen {
             return array
         }
 
-        const random = (item: Array<typeof ArrayCards>[]) => {
+        const random = (item: Array<String>[]) => {
             return Math.floor(Math.random() * item.length)
         }
 
         for (let i = 0; i < pair; i++) {
-            let temp: String =
+            let temp =
                 ArrayCards[random(ArrayCards)] + ArraySuits[random(ArraySuits)]
             if (list.includes(temp)) {
                 i--
@@ -58,7 +58,7 @@ class GameScreen {
     }
 }
 
-GameScreen.template = {
+const template: Template = {
     tag: 'div',
     cls: 'screen__form',
     content: [
@@ -114,4 +114,5 @@ export { GameScreen }
 import { templateEngine } from './template-engine'
 import { app } from './index'
 import { CardShow } from './cards-show'
-import application from './index'
+import application from './index'import { Template } from 'webpack'
+

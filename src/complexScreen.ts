@@ -14,12 +14,11 @@ class ComplexScreen {
 
     render() {
         // eslint-disable-next-line no-undef
-        this.element.appendChild(templateEngine(ComplexScreen.template))
+        this.element.appendChild(templateEngine(template))
     }
 
     clickButton(event: MouseEvent) {
         const target: EventTarget | null = event.target
-        console.log(target)
         if (target.tagName === 'BUTTON') {
             if (target.textContent === 'Старт') {
                 application.screen = 'Start'
@@ -45,7 +44,7 @@ class ComplexScreen {
     }
 }
 
-ComplexScreen.template = {
+const template: Template = {
     tag: 'div',
     cls: 'complex__form',
     content: [
@@ -96,5 +95,6 @@ import { templateEngine } from './template-engine'
 export { ComplexScreen }
 import { GameScreen } from './gameScreen'
 import { app } from './index'
+import { Template } from 'webpack'
 // import { Template } from 'webpack'
 // import './style.css'

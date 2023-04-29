@@ -42,7 +42,7 @@ const application: Application = {
 
 export default application
 
-const app: HTMLElement | null = document.querySelector('.app')
+const app: HTMLElement = document.querySelector('.app')
 const Complex_Screen = new ComplexScreen(app)
 
 export { app }
