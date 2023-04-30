@@ -7,18 +7,20 @@ class ComplexScreen {
         this.element = element
         this.render()
         this.clickButton = this.clickButton.bind(this)
-        this.element.lastChild.addEventListener('click', this.clickButton)
+        this.element.lastChild !== null
+            ? this.element.lastChild.addEventListener('click', this.clickButton)
+            : () => {}
 
         application.screen = 'Complex'
     }
 
-    render() {
+    render(): void {
         // eslint-disable-next-line no-undef
         this.element.appendChild(templateEngine(template))
     }
 
-    clickButton(event: MouseEvent) {
-        const target: EventTarget | null = event.target
+    clickButton(event: MouseEvent): void {
+        const target: HTMLElement = event.target as HTMLElement
         if (target.tagName === 'BUTTON') {
             if (target.textContent === 'Старт') {
                 application.screen = 'Start'
@@ -96,5 +98,3 @@ export { ComplexScreen }
 import { GameScreen } from './gameScreen'
 import { app } from './index'
 import { Template } from 'webpack'
-// import { Template } from 'webpack'
-// import './style.css'

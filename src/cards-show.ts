@@ -10,7 +10,7 @@ class CardShow {
     constructor(element: HTMLElement) {
         this.element = element
 
-        this.cardList = application.cards
+        // this.cardList = application.cards
 
         this.render()
 
@@ -18,27 +18,39 @@ class CardShow {
 
         this.buttonBeginNewGameHandler =
             this.buttonBeginNewGameHandler.bind(this)
-        document
-            .querySelector('.btn__new_game')
-            .addEventListener('click', this.buttonBeginNewGameHandler)
-    }
 
+        if (document.querySelector('.btn__new_game') !== null) {
+            document
+                .querySelector('.btn__new_game')
+                .addEventListener('click', this.buttonBeginNewGameHandler)
+        }
+    }
     render() {
         this.element.appendChild(templateEngine(template))
         this.renderItem()
     }
 
-    renderItem(item) {
-        this.element.lastChild.appendChild(
-            templateEngine(this.cardList.map(templateItem))
-        )
-
-        const shirtBegin = () => {
-            this.element.lastChild.innerHTML = ''
+    renderItem() {
+        const cardList: Array<String> = application.cards
+        if (this.element.lastChild !== null) {
             this.element.lastChild.appendChild(
-                templateEngine(this.cardList.map(templateItemShirt))
+                templateEngine(cardList.map(templateItem))
             )
-            const btn = document.querySelector('.btn__new_game')
+        }
+
+        // templateEngine(this.cardList.map(templateItem))
+
+        const shirtBegin = (): void => {
+            if (this.element.lastChild !== null) {
+                this.element.lastChild.innerHTML = ''
+                this.element.lastChild.appendChild(
+                    templateEngine(cardList.map(templateItemShirt))
+                )
+            }
+
+            // templateEngine(this.cardList.map(templateItemShirt))
+
+            const btn: HTMLElement = document.querySelector('.btn__new_game')
             btn.removeAttribute('disabled')
             btn.classList.add('active')
             document
@@ -82,9 +94,10 @@ class CardShow {
         }, 1000)
     }
 
-    cardsClick(event) {
-        const target = event.target
+    cardsClick(event: MouseEvent) {
+        const target: HTMLElement = event.target as HTMLElement
         const delItemArr = application.cards
+
         if (application.choosenCard === '') {
             application.choosenCard = target.id
             delItemArr.splice(delItemArr.indexOf(target.id), 1)
@@ -119,8 +132,9 @@ class CardShow {
             cards: [],
             screen: '',
             win: '',
-            choosenCard: [],
+            choosenCard: '',
         }
+        console.log(application)
         const Complex_Screen = new ComplexScreen(app)
     }
 }
@@ -152,5 +166,5 @@ import { ComplexScreen } from './complexScreen'
 import { templateEngine } from './template-engine'
 import { app } from './index'
 import { End } from './end'
-import application from './index'import { Template } from 'webpack'
-
+import application from './index'
+import { Template } from 'webpack'

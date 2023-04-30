@@ -19,10 +19,11 @@ class GameScreen {
     }
 
     mixCards() {
-        const pair: number = +application.level * 3
-        const list: Array<String> = []
+        const pair: number =
+            application.level !== null ? +application.level * 3 : 0
+        const list: String[] = []
 
-        const shuffle = (array: Array<String>[]) => {
+        function shuffle(array: Array<String>): Array<String> {
             let m = array.length,
                 t,
                 i
@@ -37,7 +38,7 @@ class GameScreen {
             return array
         }
 
-        const random = (item: Array<String>[]) => {
+        const random = (item: Array<String>): Number => {
             return Math.floor(Math.random() * item.length)
         }
 
@@ -114,5 +115,5 @@ export { GameScreen }
 import { templateEngine } from './template-engine'
 import { app } from './index'
 import { CardShow } from './cards-show'
-import application from './index'import { Template } from 'webpack'
-
+import application from './index'
+import { Template } from 'webpack'

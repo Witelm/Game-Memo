@@ -10,13 +10,13 @@ import { GameScreen } from './gameScreen'
 
 declare global {
     interface Application {
-        level: String
+        level: string | null
         time: string
         status: string
         cards: Array<String>
         screen: string
         win: string
-        choosenCard: Array<String>
+        choosenCard: String
     }
 }
 
@@ -27,22 +27,11 @@ const application: Application = {
     cards: [],
     screen: '',
     win: '',
-    choosenCard: [],
+    choosenCard: '',
 }
 
-// window.application: Application = {
-//     level: '',
-//     time: '',
-//     status: '',
-//     cards: [],
-//     screen: '',
-//     win: '',
-//     choosenCard: [],
-// }
-
+export { app }
 export default application
 
 const app: HTMLElement = document.querySelector('.app')
 const Complex_Screen = new ComplexScreen(app)
-
-export { app }

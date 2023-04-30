@@ -25,27 +25,25 @@ class End {
                 ? `./images/lose.jpg`
                 : `./images/win.jpg`
 
-        this.element.appendChild(
-            templateEngine(End.template(ENDTEXT, ENDIMAGE))
-        )
+        this.element.appendChild(templateEngine(template(ENDTEXT, ENDIMAGE)))
     }
 
-    private endClickButton() {
+    endClickButton() {
         this.element.innerHTML = ''
-        const application: Application = {
+        const application = {
             level: '',
             time: '',
             status: '',
             cards: [],
             screen: '',
             win: '',
-            choosenCard: [],
+            choosenCard: '',
         }
         const Complex_Screen = new ComplexScreen(app)
     }
 }
 
-End.template = (data, dataImg) => ({
+const template: Template = (data: String, dataImg: String) => ({
     tag: 'div',
     cls: 'end__form',
     content: [
@@ -79,3 +77,4 @@ import { ComplexScreen } from './complexScreen'
 import { app } from './index'
 export { End }
 import application from './index'
+import { Template } from 'webpack'
