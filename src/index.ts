@@ -33,5 +33,5 @@ const application: Application = {
 export { app }
 export default application
 
-const app: HTMLElement = document.querySelector('.app')
+const app = document.querySelector('.app') as HTMLElement
 const Complex_Screen = new ComplexScreen(app)
