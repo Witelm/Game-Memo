@@ -4,8 +4,8 @@
 class CardShow {
     public element: HTMLElement
     public static template: Template
-    public static templateItem: Template
-    public static templateItemShirt: Template
+    public static templateItem: (data: String) => Template
+    public static templateItemShirt: (data: String) => Template
 
     constructor(element: HTMLElement) {
         this.element = element
@@ -65,7 +65,7 @@ class CardShow {
     }
 
     timeOn() {
-        const time = document.querySelector('.div__time')
+        const time: Element | null = document.querySelector('.div__time')
         let sec1 = 0
         let sec2 = 0
         let min1 = 0
@@ -91,8 +91,11 @@ class CardShow {
             if (application.win) {
                 clearInterval(timeInterval)
             }
-            time.textContent = `${min2}${min1}.${sec2}${sec1}`
-            application.time = time.textContent
+
+            if (time !== null) {
+                time.textContent = `${min2}${min1}.${sec2}${sec1}`
+                application.time = time.textContent
+            }
         }, 1000)
     }
 
@@ -146,7 +149,7 @@ const template: Template = {
     cls: 'card__form',
 }
 
-const templateItem: Template = (item: string) => ({
+const templateItem = (item: String): Template => ({
     tag: 'img',
     cls: 'img__style',
     attrs: {
@@ -154,7 +157,7 @@ const templateItem: Template = (item: string) => ({
     },
 })
 
-const templateItemShirt: Template = (data: string) => ({
+const templateItemShirt = (data: String): Template => ({
     tag: 'img',
     cls: 'img__style',
     attrs: {

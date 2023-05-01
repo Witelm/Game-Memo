@@ -1,7 +1,7 @@
 /* eslint-disable no-undef */
 class End {
     public element: HTMLElement
-    public static template: Template
+    public static template: (dataText: String, dataImage: String) => Template
 
     constructor(element: HTMLElement) {
         this.element = element
@@ -48,14 +48,14 @@ class End {
     }
 }
 
-const template: Template = (data: String, dataImg: String) => ({
+const template = (dataText: String, dataImage: String): Template => ({
     tag: 'div',
     cls: 'end__form',
     content: [
         {
             tag: 'h1',
             cls: 'end__text',
-            content: data,
+            content: dataText,
         },
         {
             tag: 'h2',
@@ -66,7 +66,7 @@ const template: Template = (data: String, dataImg: String) => ({
             tag: 'img',
             cls: 'end__img',
             attrs: {
-                src: dataImg,
+                src: dataImage,
             },
         },
         {
