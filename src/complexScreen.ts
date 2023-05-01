@@ -9,7 +9,7 @@ class ComplexScreen {
 
         this.clickButton = this.clickButton.bind(this)
 
-        const lastElementBtn: ChildNode | null = this.element
+        const lastElementBtn: HTMLElement | null = this.element
             .lastChild as HTMLElement
         if (lastElementBtn !== null) {
             lastElementBtn.addEventListener('click', this.clickButton)

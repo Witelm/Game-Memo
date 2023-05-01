@@ -44,15 +44,6 @@ class End {
         application.status = ''
         application.screen = ''
 
-        // const application = {
-        //     level: '',
-        //     time: '',
-        //     status: '',
-        //     cards: [],
-        //     screen: '',
-        //     win: '',
-        //     choosenCard: '',
-        // }
         const Complex_Screen = new ComplexScreen(app)
     }
 }

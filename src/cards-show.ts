@@ -36,8 +36,6 @@ class CardShow {
             lastChildEl.appendChild(templateEngine(cardList.map(templateItem)))
         }
 
-        // templateEngine(this.cardList.map(templateItem))
-
         const shirtBegin = (): void => {
             if (lastChildEl !== null) {
                 lastChildEl.innerHTML = ''
@@ -46,14 +44,20 @@ class CardShow {
                 )
             }
 
-            // templateEngine(this.cardList.map(templateItemShirt))
+            const btn: HTMLElement | null =
+                document.querySelector('.btn__new_game')
 
-            const btn: HTMLElement = document.querySelector('.btn__new_game')
-            btn.removeAttribute('disabled')
-            btn.classList.add('active')
-            document
-                .querySelector('.card__form')
-                .addEventListener('click', this.cardsClick)
+            if (btn !== null) {
+                btn.removeAttribute('disabled')
+                btn.classList.add('active')
+            }
+
+            const cardForm: HTMLElement | null =
+                document.querySelector('.card__form')
+            if (cardForm !== null) {
+                cardForm.addEventListener('click', this.cardsClick)
+            }
+
             this.timeOn()
         }
 
@@ -142,7 +146,7 @@ const template: Template = {
     cls: 'card__form',
 }
 
-const templateItem: Template = (item) => ({
+const templateItem: Template = (item: string) => ({
     tag: 'img',
     cls: 'img__style',
     attrs: {
@@ -150,7 +154,7 @@ const templateItem: Template = (item) => ({
     },
 })
 
-const templateItemShirt: Template = (data) => ({
+const templateItemShirt: Template = (data: string) => ({
     tag: 'img',
     cls: 'img__style',
     attrs: {
