@@ -10,8 +10,6 @@ class CardShow {
     constructor(element: HTMLElement) {
         this.element = element
 
-        // this.cardList = application.cards
-
         this.render()
 
         this.cardsClick = this.cardsClick.bind(this)
@@ -19,10 +17,10 @@ class CardShow {
         this.buttonBeginNewGameHandler =
             this.buttonBeginNewGameHandler.bind(this)
 
-        if (document.querySelector('.btn__new_game') !== null) {
-            document
-                .querySelector('.btn__new_game')
-                .addEventListener('click', this.buttonBeginNewGameHandler)
+        const btnNewGame: Element | null =
+            document.querySelector('.btn__new_game')
+        if (btnNewGame !== null) {
+            btnNewGame.addEventListener('click', this.buttonBeginNewGameHandler)
         }
     }
     render() {
@@ -32,18 +30,18 @@ class CardShow {
 
     renderItem() {
         const cardList: Array<String> = application.cards
-        if (this.element.lastChild !== null) {
-            this.element.lastChild.appendChild(
-                templateEngine(cardList.map(templateItem))
-            )
+        const lastChildEl: Element | null = this.element.lastChild as Element
+
+        if (lastChildEl !== null) {
+            lastChildEl.appendChild(templateEngine(cardList.map(templateItem)))
         }
 
         // templateEngine(this.cardList.map(templateItem))
 
         const shirtBegin = (): void => {
-            if (this.element.lastChild !== null) {
-                this.element.lastChild.innerHTML = ''
-                this.element.lastChild.appendChild(
+            if (lastChildEl !== null) {
+                lastChildEl.innerHTML = ''
+                lastChildEl.appendChild(
                     templateEngine(cardList.map(templateItemShirt))
                 )
             }

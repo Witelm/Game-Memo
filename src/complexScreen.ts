@@ -6,10 +6,14 @@ class ComplexScreen {
     constructor(element: HTMLElement) {
         this.element = element
         this.render()
+
         this.clickButton = this.clickButton.bind(this)
-        this.element.lastChild !== null
-            ? this.element.lastChild.addEventListener('click', this.clickButton)
-            : () => {}
+
+        const lastElementBtn: ChildNode | null = this.element
+            .lastChild as HTMLElement
+        if (lastElementBtn !== null) {
+            lastElementBtn.addEventListener('click', this.clickButton)
+        }
 
         application.screen = 'Complex'
     }
@@ -29,11 +33,13 @@ class ComplexScreen {
             } else {
                 application.level = target.textContent
 
-                const startButtonActive: HTMLElement = document.querySelector(
-                    '.complex__button_start'
-                )
-                startButtonActive.removeAttribute('disabled')
-                startButtonActive.classList.add('active')
+                const startButtonActive: HTMLElement | null =
+                    document.querySelector('.complex__button_start')
+
+                if (startButtonActive !== null) {
+                    startButtonActive.removeAttribute('disabled')
+                    startButtonActive.classList.add('active')
+                }
 
                 const btns: NodeListOf<Element> =
                     document.querySelectorAll('.complex__button')
