@@ -1,5 +1,5 @@
 /* eslint-disable no-unused-vars */
-function templateEngine(block) {
+function templateEngine(block: any) {
     if (block === undefined || block === null || block === false) {
         return document.createTextNode('')
     }

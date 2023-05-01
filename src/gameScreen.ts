@@ -38,19 +38,19 @@ class GameScreen {
             return array
         }
 
-        const random = (item: Array<String>): Number => {
+        const random = (item: Array<String>): number => {
             return Math.floor(Math.random() * item.length)
         }
 
         for (let i = 0; i < pair; i++) {
-            let temp =
+            let temp: string =
                 ArrayCards[random(ArrayCards)] + ArraySuits[random(ArraySuits)]
             if (list.includes(temp)) {
                 i--
                 temp = ''
             } else {
                 list[i] = temp
-                temp = undefined
+                temp = ''
             }
         }
 
@@ -108,8 +108,8 @@ const template: Template = {
     ],
 }
 
-const ArrayCards: Array<String> = ['6', '7', '8', '9', '10', 'J', 'Q', 'K', 'A']
-const ArraySuits: Array<String> = ['H', 'C', 'D', 'S']
+const ArrayCards: Array<string> = ['6', '7', '8', '9', '10', 'J', 'Q', 'K', 'A']
+const ArraySuits: Array<string> = ['H', 'C', 'D', 'S']
 
 export { GameScreen }
 import { templateEngine } from './template-engine'

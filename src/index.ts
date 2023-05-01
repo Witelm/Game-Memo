@@ -16,7 +16,7 @@ declare global {
         cards: Array<String>
         screen: string
         win: string
-        choosenCard: String
+        choosenCard: string | null
     }
 }
 

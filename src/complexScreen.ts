@@ -19,7 +19,7 @@ class ComplexScreen {
         this.element.appendChild(templateEngine(template))
     }
 
-    clickButton(event: MouseEvent): void {
+    clickButton(event: MouseEvent) {
         const target: HTMLElement = event.target as HTMLElement
         if (target.tagName === 'BUTTON') {
             if (target.textContent === 'Старт') {
@@ -29,8 +29,9 @@ class ComplexScreen {
             } else {
                 application.level = target.textContent
 
-                const startButtonActive: Element | null =
-                    document.querySelector('.complex__button_start')
+                const startButtonActive: HTMLElement = document.querySelector(
+                    '.complex__button_start'
+                )
                 startButtonActive.removeAttribute('disabled')
                 startButtonActive.classList.add('active')
 

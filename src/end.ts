@@ -30,15 +30,24 @@ class End {
 
     endClickButton() {
         this.element.innerHTML = ''
-        const application = {
-            level: '',
-            time: '',
-            status: '',
-            cards: [],
-            screen: '',
-            win: '',
-            choosenCard: '',
-        }
+
+        application.choosenCard = ''
+        application.level = ''
+        application.cards = []
+        application.time = ''
+        application.win = ''
+        application.status = ''
+        application.screen = ''
+
+        // const application = {
+        //     level: '',
+        //     time: '',
+        //     status: '',
+        //     cards: [],
+        //     screen: '',
+        //     win: '',
+        //     choosenCard: '',
+        // }
         const Complex_Screen = new ComplexScreen(app)
     }
 }
