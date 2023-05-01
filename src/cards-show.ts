@@ -17,11 +17,8 @@ class CardShow {
         this.buttonBeginNewGameHandler =
             this.buttonBeginNewGameHandler.bind(this)
 
-        const btnNewGame: Element | null =
-            document.querySelector('.btn__new_game')
-        if (btnNewGame !== null) {
-            btnNewGame.addEventListener('click', this.buttonBeginNewGameHandler)
-        }
+        const btnNewGame = document.querySelector('.btn__new_game') as Element
+        btnNewGame.addEventListener('click', this.buttonBeginNewGameHandler)
     }
     render() {
         this.element.appendChild(templateEngine(template))
@@ -30,33 +27,24 @@ class CardShow {
 
     renderItem() {
         const cardList: Array<String> = application.cards
-        const lastChildEl: Element | null = this.element.lastChild as Element
+        const lastChildEl = this.element.lastChild as Element
 
-        if (lastChildEl !== null) {
-            lastChildEl.appendChild(templateEngine(cardList.map(templateItem)))
-        }
+        lastChildEl.appendChild(templateEngine(cardList.map(templateItem)))
 
         const shirtBegin = (): void => {
-            if (lastChildEl !== null) {
-                lastChildEl.innerHTML = ''
-                lastChildEl.appendChild(
-                    templateEngine(cardList.map(templateItemShirt))
-                )
-            }
+            lastChildEl.innerHTML = ''
+            lastChildEl.appendChild(
+                templateEngine(cardList.map(templateItemShirt))
+            )
 
-            const btn: HTMLElement | null =
-                document.querySelector('.btn__new_game')
+            const btn = document.querySelector('.btn__new_game') as HTMLElement
+            btn.removeAttribute('disabled')
+            btn.classList.add('active')
 
-            if (btn !== null) {
-                btn.removeAttribute('disabled')
-                btn.classList.add('active')
-            }
-
-            const cardForm: HTMLElement | null =
-                document.querySelector('.card__form')
-            if (cardForm !== null) {
-                cardForm.addEventListener('click', this.cardsClick)
-            }
+            const cardForm = document.querySelector(
+                '.card__form'
+            ) as HTMLElement
+            cardForm.addEventListener('click', this.cardsClick)
 
             this.timeOn()
         }
@@ -65,7 +53,7 @@ class CardShow {
     }
 
     timeOn() {
-        const time: Element | null = document.querySelector('.div__time')
+        const time = document.querySelector('.div__time') as Element
         let sec1 = 0
         let sec2 = 0
         let min1 = 0
@@ -92,10 +80,8 @@ class CardShow {
                 clearInterval(timeInterval)
             }
 
-            if (time !== null) {
-                time.textContent = `${min2}${min1}.${sec2}${sec1}`
-                application.time = time.textContent
-            }
+            time.textContent = `${min2}${min1}.${sec2}${sec1}`
+            application.time = time.textContent
         }, 1000)
     }
 
@@ -130,16 +116,14 @@ class CardShow {
 
     buttonBeginNewGameHandler() {
         this.element.innerHTML = ''
-        const application: Application = {
-            level: '',
-            time: '',
-            status: '',
-            cards: [],
-            screen: '',
-            win: '',
-            choosenCard: '',
-        }
-        console.log(application)
+        application.choosenCard = ''
+        application.level = ''
+        application.cards = []
+        application.time = ''
+        application.win = ''
+        application.status = ''
+        application.screen = ''
+
         const Complex_Screen = new ComplexScreen(app)
     }
 }

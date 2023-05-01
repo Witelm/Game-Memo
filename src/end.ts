@@ -10,11 +10,9 @@ class End {
 
         this.endClickButton = this.endClickButton.bind(this)
 
-        const lastElement: ChildNode | null = this.element.lastChild
+        const lastElement = this.element.lastChild as ChildNode
 
-        if (lastElement !== null) {
-            lastElement.addEventListener('click', this.endClickButton)
-        }
+        lastElement.addEventListener('click', this.endClickButton)
 
         application.screen = 'endScreen'
     }
