@@ -80,4 +80,4 @@ import { ComplexScreen } from './complexScreen'
 import { app } from './index'
 export { End }
 import application from './index'
-import { Template } from 'webpack'
+import { Template } from './template-engine'

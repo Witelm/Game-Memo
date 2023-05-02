@@ -99,4 +99,5 @@ import { templateEngine } from './template-engine'
 export { ComplexScreen }
 import { GameScreen } from './gameScreen'
 import { app } from './index'
-import { Template } from 'webpack'
+// import { Template } from 'webpack'
+import { Template } from './template-engine'

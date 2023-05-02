@@ -1,5 +1,7 @@
+// import { Template } from 'webpack'
+
 /* eslint-disable no-unused-vars */
-function templateEngine(block: any) {
+function templateEngine(block: Template) {
     if (block === undefined || block === null || block === false) {
         return document.createTextNode('')
     }
@@ -37,5 +39,18 @@ function templateEngine(block: any) {
     element.appendChild(content)
     return element
 }
+
+export type Template =
+    | {
+          tag: string
+          cls: string | string[]
+          content?: Template[] | Template | String
+          attrs?: {
+              [key: string]: String
+          }
+      }
+    | string
+    | number
+    | boolean
 
 export { templateEngine }
