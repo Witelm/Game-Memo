@@ -1,7 +1,7 @@
 // import { Template } from 'webpack'
 
 /* eslint-disable no-unused-vars */
-function templateEngine(block: Template) {
+function templateEngine(block: Template | Template[]) {
     if (block === undefined || block === null || block === false) {
         return document.createTextNode('')
     }

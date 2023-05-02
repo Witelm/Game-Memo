@@ -14,7 +14,7 @@ class GameScreen {
 
     render() {
         this.element.innerHTML = ''
-        this.element.appendChild(templateEngine(template))
+        this.element.appendChild(templateEngine(template as Template))
         const Card_Show = new CardShow(this.element)
     }
 
@@ -116,4 +116,5 @@ import { templateEngine } from './template-engine'
 import { app } from './index'
 import { CardShow } from './cards-show'
 import application from './index'
-import { Template } from 'webpack'
+// import { Template } from 'webpack'
+import { Template } from './template-engine'
