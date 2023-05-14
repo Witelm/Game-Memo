@@ -1,37 +1,44 @@
 /* eslint-disable no-undef */
 class ComplexScreen {
-    constructor(element) {
+    public element: HTMLElement
+    public static template: Template
+
+    constructor(element: HTMLElement) {
         this.element = element
         this.render()
+
         this.clickButton = this.clickButton.bind(this)
-        this.element.lastChild.addEventListener('click', this.clickButton)
 
-        window.application.screen = 'Complex'
+        const lastElementBtn = this.element.lastChild as HTMLElement
+        lastElementBtn.addEventListener('click', this.clickButton)
+
+        application.screen = 'Complex'
     }
 
-    render() {
+    render(): void {
         // eslint-disable-next-line no-undef
-        this.element.appendChild(templateEngine(ComplexScreen.template))
+        this.element.appendChild(templateEngine(template))
     }
 
-    clickButton(event) {
-        const target = event.target
+    clickButton(event: MouseEvent) {
+        const target: HTMLElement = event.target as HTMLElement
         if (target.tagName === 'BUTTON') {
             if (target.textContent === 'Старт') {
-                window.application.screen = 'Start'
+                application.screen = 'Start'
                 // eslint-disable-next-line camelcase, no-unused-vars
                 const Game_screen = new GameScreen(app)
             } else {
-                window.application.level = target.textContent
+                application.level = target.textContent
 
                 const startButtonActive = document.querySelector(
                     '.complex__button_start'
-                )
+                ) as HTMLElement
                 startButtonActive.removeAttribute('disabled')
                 startButtonActive.classList.add('active')
 
-                const btns = document.querySelectorAll('.complex__button')
-                btns.forEach((btn) => {
+                const btns: NodeListOf<Element> =
+                    document.querySelectorAll('.complex__button')
+                btns.forEach((btn: Element) => {
                     if (btn.textContent !== target.textContent) {
                         btn.classList.add('invisible')
                     }
@@ -41,7 +48,7 @@ class ComplexScreen {
     }
 }
 
-ComplexScreen.template = {
+const template: Template = {
     tag: 'div',
     cls: 'complex__form',
     content: [
@@ -87,7 +94,10 @@ ComplexScreen.template = {
     ],
 }
 
-import { templateEngine } from './template-engine.js'
+import application from './index'
+import { templateEngine } from './template-engine'
 export { ComplexScreen }
-import { GameScreen } from './gameScreen.js'
-import { app } from './index.js'
+import { GameScreen } from './gameScreen'
+import { app } from './index'
+// import { Template } from 'webpack'
+import { Template } from './template-engine'

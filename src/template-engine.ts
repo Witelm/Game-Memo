@@ -1,5 +1,7 @@
+// import { Template } from 'webpack'
+
 /* eslint-disable no-unused-vars */
-function templateEngine(block) {
+function templateEngine(block: Template | Template[]) {
     if (block === undefined || block === null || block === false) {
         return document.createTextNode('')
     }
@@ -9,7 +11,7 @@ function templateEngine(block) {
         typeof block === 'number' ||
         block === true
     ) {
-        return document.createTextNode(block)
+        return document.createTextNode(block as string)
     }
 
     if (Array.isArray(block)) {
@@ -23,19 +25,32 @@ function templateEngine(block) {
     const element = document.createElement(block.tag)
 
     if (block.cls) {
-        element.classList.add(...[].concat(block.cls).filter(Boolean))
+        element.classList.add(...[].concat(block.cls as []).filter(Boolean))
     }
 
     if (block.attrs) {
         const keys = Object.keys(block.attrs)
         keys.forEach((key) => {
-            element.setAttribute(key, block.attrs[key])
+            element.setAttribute(key, block.attrs![key] as string)
         })
     }
 
-    const content = templateEngine(block.content)
+    const content = templateEngine(block.content as Template)
     element.appendChild(content)
     return element
 }
+
+export type Template =
+    | {
+          tag: string
+          cls: string | string[]
+          content?: Template[] | Template | String
+          attrs?: {
+              [key: string]: String
+          }
+      }
+    | string
+    | number
+    | boolean
 
 export { templateEngine }

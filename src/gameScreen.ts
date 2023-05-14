@@ -2,7 +2,10 @@
 /* eslint-disable no-unused-vars */
 /* eslint-disable no-undef */
 class GameScreen {
-    constructor(element) {
+    public element: HTMLElement
+    public static template: Template
+
+    constructor(element: HTMLElement) {
         this.element = element
 
         this.mixCards()
@@ -11,15 +14,16 @@ class GameScreen {
 
     render() {
         this.element.innerHTML = ''
-        this.element.appendChild(templateEngine(GameScreen.template))
+        this.element.appendChild(templateEngine(template as Template))
         const Card_Show = new CardShow(this.element)
     }
 
     mixCards() {
-        const pair = +window.application.level * 3
-        const list = []
+        const pair: number =
+            application.level !== null ? +application.level * 3 : 0
+        const list: String[] = []
 
-        const shuffle = (array) => {
+        function shuffle(array: Array<String>): Array<String> {
             let m = array.length,
                 t,
                 i
@@ -34,28 +38,28 @@ class GameScreen {
             return array
         }
 
-        const random = (item) => {
+        const random = (item: Array<String>): number => {
             return Math.floor(Math.random() * item.length)
         }
 
         for (let i = 0; i < pair; i++) {
-            let temp =
+            let temp: string =
                 ArrayCards[random(ArrayCards)] + ArraySuits[random(ArraySuits)]
             if (list.includes(temp)) {
                 i--
                 temp = ''
             } else {
                 list[i] = temp
-                temp = undefined
+                temp = ''
             }
         }
 
         list.push(...list)
-        window.application.cards = shuffle(list)
+        application.cards = shuffle(list)
     }
 }
 
-GameScreen.template = {
+const template: Template = {
     tag: 'div',
     cls: 'screen__form',
     content: [
@@ -104,10 +108,13 @@ GameScreen.template = {
     ],
 }
 
-const ArrayCards = ['6', '7', '8', '9', '10', 'J', 'Q', 'K', 'A']
-const ArraySuits = ['H', 'C', 'D', 'S']
+const ArrayCards: Array<string> = ['6', '7', '8', '9', '10', 'J', 'Q', 'K', 'A']
+const ArraySuits: Array<string> = ['H', 'C', 'D', 'S']
 
 export { GameScreen }
-import { templateEngine } from './template-engine.js'
-import { app } from './index.js'
-import { CardShow } from './cards-show.js'
+import { templateEngine } from './template-engine'
+import { app } from './index'
+import { CardShow } from './cards-show'
+import application from './index'
+// import { Template } from 'webpack'
+import { Template } from './template-engine'
